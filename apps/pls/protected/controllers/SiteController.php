@@ -82,7 +82,13 @@ class SiteController extends Controller {
 				$this->redirect(Yii::app()->user->returnUrl);
 			}
 		}
-		$this->render('login', ['model' => $model]);
+        $recent_product_update_rss = Feed::loadRss(Yii::app()->params['latestUpdatesFeedUrl']);
+        $recent_blog_rss = Feed::loadRss(Yii::app()->params['blogFeedUrl']);
+        $this->render('login', [
+            'model' => $model,
+            'recent_product_update_rss'=>$recent_product_update_rss,
+            'recent_blog_rss'=>$recent_blog_rss,
+        ]);
 	}
 
 	/**

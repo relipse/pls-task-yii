@@ -26,47 +26,51 @@
 		<div class="swiper-slide">
 			<div class="overlay"></div>
 			<div class="content">
-				<i class="fal fa-comment-alt-edit"></i>
-				<h3>SuperEval’s latest products updates include:</h3>
-				<div class="row is-flex">
-					<div class="col-md-6">
-						<div class="bubble">1. Show evaluator's previous evaluation data.</div>
-					</div>
-					<div class="col-md-6">
-						<div class="bubble">2. Added consolidated data view with highest rated, lowest rated, etc.
-							to all roles.
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="bubble">3. Added competency preview links to consolidated review table.
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="bubble">4. Send survey email to evaluatee on signature; show evaluator survey
-							dialog on signature.
-						</div>
-					</div>
-				</div>
-				<a href="https://supereval.com/blog/supereval-recent-platform-updates" target="_blank"
-				   class="btn btn-primary">Read
-					More</a>
-			</div>
+                <?php
+                $count = 0;
+                foreach($recent_product_update_rss->item as $item){
+                    ?><i class="fal fa-comment-alt-lines"></i><?php
+                    $count++;
+                    echo '<h3 class="item-title">'.$item->title.'</h3>';
+                    ?>
+                    <div class="row">
+                            <div class="col-md-12 bubble">
+                                <?=$item->description?>
+                            </div>
+                   </div>
+                   <a href="https://supereval.com/blog/category/supereval-updates/" target="_blank" class="btn btn-primary">Read
+                            the Blog</a>
+                    <?php
+                    //break after first item because we are only showing one
+                    break;
+                }
+                ?>
+            </div>
 		</div>
-		<div class="swiper-slide">
-			<div class="overlay"></div>
-			<div class="content">
-				<i class="fal fa-comment-alt-lines"></i>
-				<h3>Six Benefits of Having an Open Communication System with Teachers and School Staff</h3>
-				<div class="row">
-					<div class="col-md-12 bubble">
-						This communication system has a number of perks. Here are six ways your school district may be
-						able to benefit from it.
-					</div>
-				</div>
-				<a href="https://supereval.com/blog/open-communication-system" target="_blank" class="btn btn-primary">Read
-					Our Blog</a>
-			</div>
-		</div>
+        <div class="swiper-slide">
+            <div class="overlay"></div>
+            <div class="content">
+                <?php
+                $count = 0;
+                foreach($recent_blog_rss->item as $item){
+                    ?><i class="fal fa-comment-alt-lines"></i><?php
+                    $count++;
+                    echo '<h3 class="item-title">'.$item->title.'</h3>';
+                    ?>
+                    <div class="row">
+                        <div class="col-md-12 bubble">
+                            <?=$item->description?>
+                        </div>
+                    </div>
+                    <a href="https://supereval.com/blog/" target="_blank" class="btn btn-primary">Read
+                             Our Blog</a>
+                    <?php
+                    //break after first item because we are only showing one
+                    break;
+                }
+                ?>
+            </div>
+        </div>
 	</div>
 	<div class="swiper-pagination"></div>
 <div class="swiper-button-prev"></div>

@@ -19,7 +19,11 @@ $this->breadcrumbs = [
 		</div>
 		<div class="col-md-6">
 			<?php
-			$this->renderPartial('_slides');
+            //slides will have updates from the rss now
+			$this->renderPartial('_slides', [
+                'recent_product_update_rss'=> $recent_product_update_rss ?? null,
+                'recent_blog_rss'=>$recent_blog_rss ?? null,
+            ]);
 			?>
 		</div>
 	</div>
