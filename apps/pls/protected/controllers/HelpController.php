@@ -103,6 +103,8 @@ class HelpController extends Controller {
 	 * @throws FeedException
 	 */
 	public function actionUpdates() {
+        //if null, show everything
+        $latestUpdatesMaxItemCount = Yii::app()->params['latestUpdatesMaxItemCount'] ?? null;
 		Feed::$userAgent = Yii::app()->params['curlUserAgent'];
 		Feed::$cacheDir = Yii::app()->params['latestUpdatesFeedCacheDir'];
 		Feed::$cacheExpire = Yii::app()->params['latestUpdatesFeedCacheExp'];
@@ -116,7 +118,10 @@ class HelpController extends Controller {
 			}
 			$items = $feed->item;
 		}
-		$this->render('updates', ['updates' => $items]);
+		$this->render('updates', [
+            'updates' => $items,
+            'latestUpdatesMaxItemCount'=> $latestUpdatesMaxItemCount
+        ]);
 	}
 
 }

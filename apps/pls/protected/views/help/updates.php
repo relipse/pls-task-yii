@@ -14,7 +14,15 @@ $this->breadcrumbs = [
 <div class="row">
 	<?php
 	if (!empty($updates)) {
+        $latestUpdatesMaxItemCount = $latestUpdatesMaxItemCount ?? null;
+        $count = 0;
 		foreach ($updates as $item) {
+            if (!is_null($latestUpdatesMaxItemCount)){
+                if ($count >= $latestUpdatesMaxItemCount){
+                    break;
+                }
+            }
+            $count++;
 			?>
 			<div class="col-md-12 update">
 				<h3><a href="<?= $item->link ?>" target="_blank"><?= $item->title ?></a></h3>
