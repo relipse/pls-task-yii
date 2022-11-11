@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * SuperEvalFeedHelper
+ * This class was used to refactor the item->description replacing code
+ * which was originally in repo. Because I decided to use it in several places,
+ * I refactored it into its own static function.
+ * I was not sure the best place to put helper classes, so I simply added a new
+ * "classes" directory and autoloaded it in main.php
+ * @see main.php
+ */
 class SuperEvalFeedHelper {
     /**
      * Format Feed Items

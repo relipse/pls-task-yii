@@ -7,7 +7,6 @@
  * @author     Developer
  * @copyright  PLS 3rd Learning, Inc. All rights reserved.
  */
-require_once(__DIR__.'/../classes/SuperEvalFeedHelper.php');
 
 class SiteController extends Controller {
 

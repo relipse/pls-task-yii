@@ -1,7 +1,8 @@
 <?php
 require_once(dirname(dirname(__DIR__)) . '/vendor/autoload.php');
 YiiBase::setPathOfAlias('protected', dirname(__DIR__));
-
+//add in the SueprEvalFeedHelper.php helper class that I made
+require_once(__DIR__.'/../classes/SuperEvalFeedHelper.php');
 return [
 	'basePath'   => dirname(__DIR__),
 	'name'       => 'PLS 3rd Learning',
