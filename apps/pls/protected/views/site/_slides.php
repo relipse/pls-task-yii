@@ -23,6 +23,7 @@
 					More</a>
 			</div>
 		</div>
+        <?php if (isset($recent_product_update_rss)): ?>
 		<div class="swiper-slide">
 			<div class="overlay"></div>
 			<div class="content">
@@ -47,6 +48,8 @@
                 ?>
             </div>
 		</div>
+        <?php endif; ?>
+        <?php if (isset($recent_blog_rss)): ?>
         <div class="swiper-slide">
             <div class="overlay"></div>
             <div class="content">
@@ -71,6 +74,7 @@
                 ?>
             </div>
         </div>
+        <?php endif; ?>
 	</div>
 	<div class="swiper-pagination"></div>
 <div class="swiper-button-prev"></div>
