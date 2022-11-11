@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__.'/../classes/SuperEvalFeedHelper.php');
+
 /**
  * @class      HelpController
  *
@@ -111,12 +113,7 @@ class HelpController extends Controller {
 		$feed = Feed::loadRss(Yii::app()->params['latestUpdatesFeedUrl']);
 		$items = [];
 		if (!empty($feed)) {
-			foreach ($feed->item as $item) {
-				$more = ' <a href="' . $item->link . '" target="_blank">Read more</a>';
-				$item->description = trim(str_replace(' [&#8230;]', '...' . $more, $item->description));
-				$item->description = preg_replace('/The post.*appeared first on .*\./', '', $item->description);
-			}
-			$items = $feed->item;
+			$items = SuperEvalFeedHelper::FormatFeedItems($feed);
 		}
 		$this->render('updates', [
             'updates' => $items,

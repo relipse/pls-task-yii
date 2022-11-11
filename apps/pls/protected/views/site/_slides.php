@@ -23,13 +23,13 @@
 					More</a>
 			</div>
 		</div>
-        <?php if (isset($recent_product_update_rss)): ?>
+        <?php if (isset($recent_product_update_items)): ?>
 		<div class="swiper-slide">
 			<div class="overlay"></div>
 			<div class="content">
                 <?php
                 $count = 0;
-                foreach($recent_product_update_rss->item as $item){
+                foreach($recent_product_update_items as $item){
                     ?><i class="fal fa-comment-alt-lines"></i><?php
                     $count++;
                     echo '<h3 class="item-title">'.$item->title.'</h3>';
@@ -49,13 +49,13 @@
             </div>
 		</div>
         <?php endif; ?>
-        <?php if (isset($recent_blog_rss)): ?>
+        <?php if (isset($recent_blog_items)): ?>
         <div class="swiper-slide">
             <div class="overlay"></div>
             <div class="content">
                 <?php
                 $count = 0;
-                foreach($recent_blog_rss->item as $item){
+                foreach($recent_blog_items as $item){
                     ?><i class="fal fa-comment-alt-lines"></i><?php
                     $count++;
                     echo '<h3 class="item-title">'.$item->title.'</h3>';

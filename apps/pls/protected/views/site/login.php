@@ -21,8 +21,8 @@ $this->breadcrumbs = [
 			<?php
             //slides will have updates from the rss now
 			$this->renderPartial('_slides', [
-                'recent_product_update_rss'=> $recent_product_update_rss ?? null,
-                'recent_blog_rss'=>$recent_blog_rss ?? null,
+                'recent_product_update_items'=> $recent_product_update_items ?? null,
+                'recent_blog_items'=> $recent_blog_items ?? null,
             ]);
 			?>
 		</div>

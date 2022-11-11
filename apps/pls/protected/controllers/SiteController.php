@@ -7,6 +7,7 @@
  * @author     Developer
  * @copyright  PLS 3rd Learning, Inc. All rights reserved.
  */
+require_once(__DIR__.'/../classes/SuperEvalFeedHelper.php');
 
 class SiteController extends Controller {
 
@@ -83,11 +84,13 @@ class SiteController extends Controller {
 			}
 		}
         $recent_product_update_rss = Feed::loadRss(Yii::app()->params['latestUpdatesFeedUrl']);
+        $recent_product_update_items = SuperEvalFeedHelper::FormatFeedItems($recent_product_update_rss);
         $recent_blog_rss = Feed::loadRss(Yii::app()->params['blogFeedUrl']);
+        $recent_blog_items = SuperEvalFeedHelper::FormatFeedItems($recent_blog_rss);
         $this->render('login', [
             'model' => $model,
-            'recent_product_update_rss'=>$recent_product_update_rss,
-            'recent_blog_rss'=>$recent_blog_rss,
+            'recent_product_update_items'=>$recent_product_update_items,
+            'recent_blog_items'=>$recent_blog_items,
         ]);
 	}
 
